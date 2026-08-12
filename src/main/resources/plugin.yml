@@ -1,0 +1,37 @@
+name: KiEngine
+version: ${version}
+main: com.ki.engine.core.KiEnginePlugin
+api-version: '1.21'
+author: KiTeam
+description: KiEngine - Minecraft content engine for items, blocks, entities, NPCs, recipes, skills and RPG
+
+softdepend:
+  - Vault
+  - PlaceholderAPI
+  - KaMenu
+
+commands:
+  ki:
+    description: KiEngine main command
+    usage: /ki [menu|reload|give|list|mob|npc|skill|status]
+    aliases: [kengine, kiengine]
+    permission: ki.use
+    permission-message: "\u00a7cYou don't have permission to use this command"
+
+permissions:
+  ki.use:
+    description: Basic KiEngine command access
+    default: true
+  ki.reload:
+    description: Reload KiEngine configuration
+    default: op
+  ki.give:
+    description: Give custom items
+    default: op
+  ki.admin:
+    description: Full KiEngine admin access
+    default: op
+    children:
+      ki.reload: true
+      ki.give: true
+      ki.use: true
