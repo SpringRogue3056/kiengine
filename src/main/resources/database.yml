@@ -1,0 +1,15 @@
+# KiEngine Database Configuration
+# Supports SQLite (default) and MySQL
+
+# SQLite is used by default - no additional setup required
+# Data is stored in plugins/KiEngine/kiengine.db
+
+# MySQL configuration (set enabled: true to use MySQL)
+mysql:
+  enabled: false
+  host: localhost
+  port: 3306
+  database: kiengine
+  username: root
+  password: ""
+  pool-size: 10
