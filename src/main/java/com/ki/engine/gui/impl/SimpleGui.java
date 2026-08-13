@@ -57,7 +57,19 @@ public class SimpleGui implements InventoryHolder {
         return false;
     }
 
-    public String getGuiId() { return guiId; }
+    public int getSize() { return inventory.getSize(); }
+
+    public void handleClick(int slot) {
+        Consumer<InventoryClickEvent> handler = clickHandlers.get(slot);
+        if (handler != null) {
+            // Create a dummy event for compatibility
+            handler.accept(null);
+        }
+    }
+
+    public void handleClose() {
+        // Override in subclass if needed
+    }
 
     @Override
     public @NotNull Inventory getInventory() {
